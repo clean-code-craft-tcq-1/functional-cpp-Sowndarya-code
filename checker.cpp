@@ -10,8 +10,8 @@ bool isValueOutOfRange (float value, float min, float max)
 
 bool batteryIsOk(float temperature, float soc, float chargeRate) 
 {
-  tempCheck = isValueWithinRange(temperature , 0, 45);
-  socCheck = isValueWithinRange(soc , 20, 80);
+  bool tempCheck = isValueWithinRange(temperature , 0, 45);
+  bool socCheck = isValueWithinRange(soc , 20, 80);
   if(tempCheck || socCheck || chargeRate > 0.8)
   {
     return false;
