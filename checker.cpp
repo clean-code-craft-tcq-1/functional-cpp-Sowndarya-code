@@ -14,13 +14,13 @@ bool batteryIsOk(float temperature, float soc, float chargeRate)
   float soc_min = 20.0F, soc_max = 80.0F;
   float charge_rate_max = 0.8F;
   bool tempCheck = isValueOutOfRange(temperature , tempr_min, tempr_max);
-  bool socCheck = isValueOutOfRange(soc , 20, 80);
-  bool batteryIsNotOkay = tempCheck || socCheck || chargeRate > 0.8;
+  bool socCheck = isValueOutOfRange(soc , soc_min, soc_max);
+  bool batteryIsNotOkay = tempCheck || socCheck || chargeRate > charge_rate_max;
   return !batteryIsNotOkay;
 }
 
 int main() 
 {
-  assert(batteryIsOk(25, 70, 0.7) == true);
-  assert(batteryIsOk(50, 85, 0) == false);
+  assert(batteryIsOk(25F, 70F, 0.7F) == true);
+  assert(batteryIsOk(50F, 85F, 0F) == false);
 }
