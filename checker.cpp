@@ -13,7 +13,7 @@ bool batteryIsOk(float temperature, float soc, float chargeRate)
   bool tempCheck = isValueOutOfRange(temperature , 0, 45);
   bool socCheck = isValueOutOfRange(soc , 20, 80);
   bool batteryIsNotOkay = tempCheck || socCheck || chargeRate > 0.8;
-  return !batteryIsOkay;
+  return !batteryIsNotOkay;
 }
 
 int main() 
